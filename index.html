@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <script src="js/index.js"></script> -->
+</head>
+<body>
+    <div class="calculator">
+        <p class="screen"><span class="result" id="res">22+235</span></p>
+        <div class="buttons">
+            <p class="grey" onclick="clr()">AC</p>
+            <p class="grey" onclick=""><=</p>
+            <p class="grey" onclick="cal('%')">%</p>
+            <p class="yellow" onclick="cal('/')">/</p>
+            <p onclick="cal('7')">7</p>
+            <p onclick="cal('8')">8</p>
+            <p onclick="cal('9')">9</p>
+            <p onclick="cal('*')" class="yellow">X</p>
+            <p onclick="cal('4')">4</p>
+            <p onclick="cal('5')">5</p>
+            <p onclick="cal('6')">6</p>
+            <p onclick="cal('-')" class="yellow">-</p>
+            <p onclick="cal('1')">1</p>
+            <p onclick="cal('2')">2</p>
+            <p onclick="cal('3')">3</p>
+            <p onclick="cal('+')" class="yellow">+</p>
+            <p onclick="cal('0')">0</p>
+            <p onclick="cal('00')">00</p>
+            <p onclick="cal('.')">.</p>
+            <p onclick="solve()" class="yellow">=</p>
+        </div>
+    </div>
+
+
+    <script>
+        function clr(){
+            document.getElementById('res').innerHTML = "0"
+        }
+
+        function cal(val){
+            let res = document.getElementById('res');
+            if(res.innerText == 0){
+                res.innerHTML = val;
+            }
+            else{
+                res.innerHTML += val;
+            }
+        }
+
+        function solve(){
+            let exp = document.getElementById('res').innerText;
+            let res = eval(exp);
+            document.getElementById('res').innerHTML = res;
+        }
+    </script>
+</body>
+</html>
